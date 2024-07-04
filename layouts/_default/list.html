@@ -1,0 +1,40 @@
+{{ define "head" }}
+  {{- with resources.Get "css/list.css" }}
+    {{- if eq hugo.Environment "development" }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- else }}
+      {{- with . | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{- end }}
+    {{- end }}
+  {{ end }}
+{{ end }}
+{{ define "main" }}
+  <div class="left-bar">
+    {{ with resources.Get "images/coffee.png" }}
+      <a href="/"><img class="jess-cafe-coffee" src="{{ .RelPermalink }}"></a>
+    {{ end }}
+  </div>
+
+  <div class="post">
+    <div class="content-metadata">
+      <h1 class="title">{{ .Title }}</h1>
+
+      {{ with resources.Get "images/separator-line.svg" }}
+        <img class="separator-line" src="{{ .RelPermalink }}">
+      {{ end }}
+    </div>
+
+    <div class="content">
+      {{ .Content }}
+      {{ range .Pages }}
+        <div class="post-descriptor">
+          <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+          <div class="summary">
+            {{ .Summary }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

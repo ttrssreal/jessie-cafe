@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-bar {
+  background-color: #fed8b1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  transition: max-width 0.2s ease-out;
+}
+
+.content {
+    margin-inline: 30px;
+    margin-bottom: 5%;
+    margin-top: 5vh;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+.content-metadata {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-metadata .title {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.content-metadata .separator-line {
+  width: 212px;
+}
+
+.content-metadata time {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.jess-cafe-coffee {
+  width: 74px;
+  margin: 15px;
+}
+
+.blog-icon {
+  width: 70px;
+  margin: 15px;
+}
+
+.back-button {
+  width: 52px;
+  display: none;
+}
+
+.post .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.back-button-reverse {
+  width: 52px;
+  display: none;
+  margin: 8px;
+}
+
+@media only screen and (max-width: 666px) {
+  .jess-cafe-coffee {
+    width: 52px;
+    margin: 8px;
+  }
+
+  .blog-icon {
+    width: 42px;
+    margin: 8px;
+  }
+
+  .content {
+    margin-inline: 10px;
+  }
+
+  .back-button {
+    display: block;
+  }
+}
