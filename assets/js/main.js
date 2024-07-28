@@ -11,17 +11,18 @@ window.addEventListener("load", (_) => {
 });
 
 function toggleLeftBar(_) {
-    if (leftBar.style.maxWidth) {
-        leftBar.style.maxWidth = null;
-        coffee.style.display = null;
-        posts.style.display = null;
-        backButton.style.display = null;
-        backButtonReverse.style.display = null;
-    } else {
-        leftBar.style.maxWidth = "0px";
+    leftBar.classList.toggle("closed");
+
+    if (leftBar.classList.contains("closed")) {
         coffee.style.display = "none";
         posts.style.display = "none";
         backButton.style.display = "none";
         backButtonReverse.style.display = "block";
+        return
     }
+
+    coffee.style.display = null;
+    posts.style.display = null;
+    backButton.style.display = null;
+    backButtonReverse.style.display = "none";
 }

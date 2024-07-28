@@ -7,25 +7,6 @@ body {
   background-color: #EFEFEF;
 }
 
-.container {
-  height: 100%;
-  width: 100vw;
-}
-
-.top-left-accent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 37.8%;
-  height: 89%;
-  z-index: -1;
-}
-
-.bottom-right-accent {
-  position: absolute;
-  width: 96.5%;
-  height: 92%;
-  right: 0px;
-  bottom: 0px;
-  z-index: -1;
+load {
+  display: none;
 }

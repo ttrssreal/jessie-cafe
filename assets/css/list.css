@@ -3,6 +3,10 @@
   flex-direction: row;
 }
 
+.read-more {
+  text-decoration: none;
+}
+
 .left-bar {
   background-color: #fed8b1;
   display: flex;

@@ -11,11 +11,10 @@
 {{ end }}
 {{ define "main" }}
   <div class="left-bar">
-    {{ with resources.Get "images/coffee.png" }}
+    {{ with resources.Get "images/home.png" }}
       <a href="/"><img class="jess-cafe-coffee" src="{{ .RelPermalink }}"></a>
     {{ end }}
   </div>
-
   <div class="post">
     <div class="content-metadata">
       <h1 class="title">{{ .Title }}</h1>
@@ -32,6 +31,11 @@
           <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
           <div class="summary">
             {{ .Summary }}
+            {{- if .Truncated }}
+              <p>
+                <a class="read-more" href="{{ .RelPermalink }}">Read more...</a>
+              </p>
+            {{- end }}
           </div>
         </div>
       {{ end }}

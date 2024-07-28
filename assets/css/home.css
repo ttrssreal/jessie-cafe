@@ -1,162 +1,174 @@
-.jess-cafe {
-  position: absolute;
-  width: 500px;
-  height: 7.1%;
-  right: 9vw;
-  bottom: 9vh;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  container-type: inline-size;
-  container-name: jess-cafe
+:root {
+  --title-font-size: 26px;
+  --boundry-margin: 5dvw;
+  --icon-height: 10dvh;
+  --coffee-icon-height: 60px;
 }
 
-.container {
-  height: 88vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: center;
-}
-
-@media only screen and (max-height: 810px) {
-  .content {
-    transform: scale(0.7);
-  }
-
-  .sec-research {
-    transform: scale(0.7);
-  }
-
-  .jess-cafe {
-    transform: scale(0.7);
-  }
-}
-
-@media only screen and (max-width: 1000px) and (min-width: 666px) {
-  .sec-research {
-    font-size: 1.6em;
-    bottom: 10.6vh !important;
-  }
-  .jess-cafe-title {
-    font-size: 1.6em;
-  }
-}
-
-@media only screen and (min-width: 1550px) {
-  .sec-research {
-    font-size: 2em;
-  }
-  .jess-cafe-title {
-    font-size: 2em;
-  }
-}
-
-.jess-cafe-coffee {
-  height: 100%;
-  margin-right: 16px;
-}
-
-.jess-cafe-title {
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.sec-research {
-  position: absolute;
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-style: normal;
-  left: 7vw;
-  bottom: 9vh;
-}
-
-.content {
-  position: absolute;
-  width: 160px;
-  height: 336px;
-  left: calc(50% - 160px / 2);
-  top: calc(50% - 336px / 2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.content .links-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.link-line {
-  margin-right: 53px;
-}
-
-.gh-logo {
-  width: 98px;
-  height: 96px;
-}
-
-.mail-icon {
-  width: 103px;
-  height: 103px;
-}
-
-.blog-icon {
-  width: 101px;
-  height: 101px;
-}
-
-.mobile {
+.not-mobile {
   display: none;
 }
 
-@media only screen and (max-width: 666px) {
-  .mobile {
+.container {
+  height: 100dvh;
+}
+
+body {
+  background: no-repeat bottom 0px right 0px / contain url("/images/bottom-right-accent2-mobile.svg"),
+              no-repeat top 0px left 0px / contain url("/images/top-left-accent2-mobile.svg"),
+              #EFEFEF;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  height: var(--icon-height);
+}
+
+.link-tree-box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .link-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+    padding-top: var(--boundry-margin);
+
+    .connect-line-box {
+      margin: 8px;
+    }
+
+    .link-line {
+      height: var(--icon-height);
+    }
+  }
+}
+
+/* the two titles */
+.titles {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > * {
+    margin: 10px;
+  }
+
+  .sec-researcher-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.title-and-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    margin-inline: 10px;
+  }
+
+  .title-box {
+    display: flex;
+    align-items: center;
+  }
+
+  .coffee-icon {
+    height: var(--coffee-icon-height);
+  }
+}
+
+/* util classes */
+.ta-center {
+  text-align: center;
+}
+
+.title-font {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+}
+
+.large-font-size {
+  font-size: var(--title-font-size);
+}
+
+.default-font-size {
+  font-size: var(--title-font-size);
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+  .not-mobile {
     display: block;
   }
 
-  .top-left-accent:not(.mobile) {
+  .mobile-only {
     display: none;
   }
 
-  .bottom-right-accent:not(.mobile) {
-    display: none;
+  .link-tree {
+    flex-direction: row !important;
+
+    .link-line {
+      height: calc(var(--icon-height) * 3 + 20px) !important;
+    }
   }
 
-  .link-line {
-    display: none;
+  .titles {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .title-and-icon {
+      padding-right: var(--boundry-margin);
+    }
+
+    .sec-researcher-box {
+      padding-left: var(--boundry-margin);
+    }
   }
 
-  .top-left-accent {
-    width: 85%;
+  body {
+    background: no-repeat bottom 0px right 0px / contain url("/images/bottom-right-accent2.svg"),
+                no-repeat top 0px left 0px / contain url("/images/top-left-accent2.svg"),
+              #EFEFEF;
+    background-size: contain;
   }
 
-  .bottom-left-accent {
-    width: 90%;
+  :root {
+    --title-font-size: 32px;
+    --boundry-margin: 100px;
+    --icon-height: 10vh;
   }
+}
 
-  .sec-research {
-    position: static;
-    width: 279px;
-    font-size: 24px;
-    margin-top: 8px;
+/* adjust fonts, icons etc */
+@media screen and (max-height: 450px) {
+  :root {
+    --title-font-size: 18px !important;
+    --coffee-icon-height: 30px !important;
+    --boundry-margin: 20px !important;
   }
+}
 
-  .jess-cafe {
-    position: static;
-    justify-content: center;
-    width: 100vw;
+@media screen and (max-height: 380px) {
+  :root {
+    --title-font-size: 12px !important;
+    --coffee-icon-height: 20px !important;
   }
+}
 
-  .jess-cafe-title {
-    font-size: 36px;
-  }
-
-  .jess-cafe-coffee {
-    width: 52px;
-    height: 52px;
+@media screen and (max-width: 350px) {
+  :root {
+    --title-font-size: 18px !important;
   }
 }

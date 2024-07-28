@@ -1,44 +1,18 @@
-{{ define "main" }}
-  {{ with resources.Get "images/top-left-accent.svg" }}
-    <img class="top-left-accent" src="{{ .RelPermalink }}">
-  {{ end }}
-  {{ with resources.Get "images/top-left-accent-mobile.svg" }}
-    <img class="top-left-accent mobile" src="{{ .RelPermalink }}">
-  {{ end }}
-  {{ with resources.Get "images/bottom-right-accent.svg" }}
-    <img class="bottom-right-accent" src="{{ .RelPermalink }}">
-  {{ end }}
-  {{ with resources.Get "images/bottom-right-accent-mobile.svg" }}
-    <img class="bottom-right-accent mobile" src="{{ .RelPermalink }}">
-  {{ end }}
-  <div class="jess-cafe">
-    {{ with resources.Get "images/coffee.png" }}
-      <img class="jess-cafe-coffee" src="{{ .RelPermalink }}">
-    {{ end }}
-    <h1 class="jess-cafe-title">Jess's Cafe</h1>
-  </div>
-  <h1 class="sec-research">Security Researcher</h1>
-  <div class="content">
-    {{ with resources.Get "images/link-line.svg" }}
-      <img class="link-line" src="{{ .RelPermalink }}">
-    {{ end }}
-    <div class="links-container">
-      {{ with resources.Get "images/link-line-mobile.svg" }}
-        <img class="mobile" src="{{ .RelPermalink }}">
-      {{ end }}
-      {{ with resources.Get "images/github-mark/github-mark.svg" }}
-        <a href="https://github.com/ttrssreal/"><img class="gh-logo" src="{{ .RelPermalink }}"></a>
-      {{ end }}
-      {{ with resources.Get "images/email.svg" }}
-        <a href="mailto:jess@jessie.cafe"><img class="mail-icon" src="{{ .RelPermalink }}"></a>
-      {{ end }}
-      {{ with resources.Get "images/blog3.png" }}
-        <a href="/posts"><img class="blog-icon" src="{{ .RelPermalink }}"></a>
-      {{ end }}
-    </div>
-  </div>
-{{ end }}
 {{ define "head" }}
+  <!-- little dumb... I have to do this so hugo knows they are used by CSS. 
+       is there a better way? -->
+  <div class="preloads">
+    {{ range slice "images/bottom-right-accent2.svg"
+                   "images/top-left-accent2.svg"
+                   "images/bottom-right-accent-mobile.svg"
+                   "images/top-left-accent-mobile.svg"
+                   "images/bottom-right-accent2-mobile.svg"
+                   "images/top-left-accent2-mobile.svg" }}
+      {{ with resources.Get . }}
+        <load res="{{ .RelPermalink }}"></load>
+      {{ end }}
+    {{ end }}
+  </div>
   {{- with resources.Get "css/home.css" }}
     {{- if eq hugo.Environment "development" }}
       <link rel="stylesheet" href="{{ .RelPermalink }}">
@@ -48,4 +22,48 @@
       {{- end }}
     {{- end }}
   {{ end }}
+{{ end }}
+{{ define "main" }}
+  <div class="link-tree-box">
+    <div class="link-tree">
+      <div class="connect-line-box">
+        {{ with resources.Get "images/link-line.svg" }}
+          <img class="link-line not-mobile" src="{{ .RelPermalink }}">
+        {{ end }}
+        {{ with resources.Get "images/link-line-mobile.svg" }}
+          <img class="link-line mobile-only" src="{{ .RelPermalink }}">
+        {{ end }}
+      </div>
+      <div class="links">
+        <div class="gh-box">
+          {{ with resources.Get "images/github-mark/github-mark.svg" }}
+            <a href="https://github.com/ttrssreal/"><img class="icon" src="{{ .RelPermalink }}"></a>
+          {{ end }}
+        </div>
+        <div class="email-box">
+          {{ with resources.Get "images/email.svg" }}
+            <a href="mailto:jess@jessie.cafe"><img class="icon" src="{{ .RelPermalink }}"></a>
+          {{ end }}
+        </div>
+        <div class="posts-box">
+          {{ with resources.Get "images/blog3.png" }}
+            <a href="/posts"><img class="icon" src="{{ .RelPermalink }}"></a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="titles">
+    <div class="title-and-icon">
+      {{ with resources.Get "images/coffee.png" }}
+        <img class="coffee-icon" src="{{ .RelPermalink }}">
+      {{ end }}
+      <div class="title-box">
+        <h1 class="large-font-size ta-center title-font">Jess's Cafe</h1>
+      </div>
+    </div>
+    <div class="sec-researcher-box">
+      <h1 class="large-font-size ta-center title-font">Security Researcher</h1>
+    </div>
+  </div>
 {{ end }}
