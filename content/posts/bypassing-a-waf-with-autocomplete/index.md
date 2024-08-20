@@ -1,7 +1,7 @@
 +++
 title = 'Bypassing a WAF With Autocomplete'
 date = 2024-07-15T10:33:59+12:00
-draft = true
+draft = false
 +++
 
 A few months ago, I was looking at a popular New Zealand website. I came across their search feature.
