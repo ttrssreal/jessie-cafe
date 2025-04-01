@@ -1,0 +1,21 @@
+body {
+  min-height: 100vh;
+  background-color: #fed8b1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  max-width: 50em;
+  flex: 1;
+}
+
+nav {
+  & a {
+    font-size: 1.5em;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
   <head>
-    {{ partial "head.html" . }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Helps with FOUC (only a little) -->
+    <link rel="preload">
+
+    <!-- TODO: Figure out how to vendor this, I don't trust these CDN's -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css/style.min.css">
+
+    {{- with resources.Get "css/common.css" }}
+      {{- if eq hugo.Environment "development" }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+      {{- else }}
+        {{- with . | minify | fingerprint }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+        {{- end }}
+      {{- end }}
+    {{ end }}
+
+    {{- if eq hugo.Environment "production" }}
+      <script defer data-domain="jessie.cafe" src="https://analytics.jessie.cafe/js/script.js"></script>
+    {{- end }}
+
+    <title>
+      {{ if .IsHome }}
+        {{ site.Title }}
+      {{ else }}
+        {{ printf "%s | %s" .Title site.Title }}
+      {{ end }}
+    </title>
+
     {{ block "head" . }}{{ end }}
   </head>
+
   <body>
-    <div class="container">
+    {{ partial "header.html" . }}
+    <main>
       {{ block "main" . }}{{ end }}
-    </div>
+    </main>
+    {{ partial "footer.html" . }}
   </body>
 </html>

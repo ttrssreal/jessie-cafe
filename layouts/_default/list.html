@@ -9,36 +9,17 @@
     {{- end }}
   {{ end }}
 {{ end }}
+
 {{ define "main" }}
-  <div class="left-bar">
-    {{ with resources.Get "images/home.png" }}
-      <a href="/"><img class="jess-cafe-coffee" src="{{ .RelPermalink }}"></a>
-    {{ end }}
-  </div>
-  <div class="post">
-    <div class="content-metadata">
-      <h1 class="title">{{ .Title }}</h1>
-
-      {{ with resources.Get "images/separator-line.svg" }}
-        <img class="separator-line" src="{{ .RelPermalink }}">
-      {{ end }}
+  <h2 class="title">{{ .Title }}</h2>
+  <div class="posts">
+  {{ range .Pages }}
+    <div class="post">
+      <h3>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      </h3>
+      <p>{{ .Description }}</p>
     </div>
-
-    <div class="content">
-      {{ .Content }}
-      {{ range .Pages }}
-        <div class="post-descriptor">
-          <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-          <div class="summary">
-            {{ .Summary }}
-            {{- if .Truncated }}
-              <p>
-                <a class="read-more" href="{{ .RelPermalink }}">Read more...</a>
-              </p>
-            {{- end }}
-          </div>
-        </div>
-      {{ end }}
-    </div>
+  {{ end }}
   </div>
 {{ end }}

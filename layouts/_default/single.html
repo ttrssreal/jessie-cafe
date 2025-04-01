@@ -9,35 +9,15 @@
     {{- end }}
   {{ end }}
 {{ end }}
+
 {{ define "main" }}
-  <div class="left-bar">
-    {{ with resources.Get "images/home.png" }}
-      <a href="/"><img class="jess-cafe-coffee" src="{{ .RelPermalink }}"></a>
-    {{ end }}
-    {{ with resources.Get "images/blog3.png" }}
-      <a href="/posts"><img class="blog-icon" src="{{ .RelPermalink }}"></a>
-    {{ end }}
-    {{ with resources.Get "images/back-button.svg" }}
-      <a><img class="back-button" src="{{ .RelPermalink }}"></a>
-    {{ end }}
+  <div class="metadata">
+      <h2 class="title">{{ .Title }}</h2>
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
   </div>
-  <div class="post">
-    <div class="top">
-      {{ with resources.Get "images/back-button-reverse.svg" }}
-        <a><img class="back-button-reverse" src="{{ .RelPermalink }}"></a>
-      {{ end }}
-      <div class="content-metadata">
-        <h1 class="title">{{ .Title }}</h1>
-        {{ with resources.Get "images/separator-line.svg" }}
-          <img class="separator-line" src="{{ .RelPermalink }}">
-        {{ end }}
-        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-        {{ $dateHuman := .Date | time.Format ":date_long" }}
-        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-      </div>
-    </div>
-    <div class="content">
-      {{ .Content }}
-    </div>
+  <div class="content">
+    {{ .Content }}
   </div>
 {{ end }}

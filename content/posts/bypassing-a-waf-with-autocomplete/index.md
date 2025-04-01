@@ -1,7 +1,8 @@
 +++
-title = 'Bypassing a WAF With Autocomplete'
+title = "Bypassing a WAF With Autocomplete"
 date = 2024-07-15T10:33:59+12:00
 draft = false
+description = "Hacking a farming website!"
 +++
 
 A few months ago, I was looking at a popular New Zealand website. I came across their search feature.
@@ -11,20 +12,20 @@ and found that when I interacted with the search box, it queried this endpoint t
 `<snip>/ViewSuggestSearch-Suggest&SearchTerm=tshirt`
 
 ```html
-	<div class="suggest-results-list search-spring">
-		<button type="button" class="close" title="Close"><span>×</span></button>
-		<div class="suggest-suggestion-list col-xs-6">
-			<h3>Search Suggestion</h3>
-			<ul>
-				<li class="classic">
-					<button type="button" 
-							data-search-result="tshirt" 
-							class="search-result">
-						<span class="ish-searchTerm">tshirt</span>
-					</button>
-				</li>
-			</ul>
-		</div>
+<div class="suggest-results-list search-spring">
+<button type="button" class="close" title="Close"><span>×</span></button>
+<div class="suggest-suggestion-list col-xs-6">
+	<h3>Search Suggestion</h3>
+	<ul>
+		<li class="classic">
+			<button type="button"
+					data-search-result="tshirt"
+					class="search-result">
+				<span class="ish-searchTerm">tshirt</span>
+			</button>
+		</li>
+	</ul>
+</div>
 
 (A bunch of products)...
 
@@ -36,20 +37,20 @@ that would then be embedded in the page. I tried injecting a HTML tag to test if
 `/ViewSuggestSearch-Suggest&SearchTerm=<h1>HACKS?!</h1>`
 
 ```html
-	<div class="suggest-results-list search-spring">
-		<button type="button" class="close" title="Close"><span>×</span></button>
-		<div class="suggest-suggestion-list col-xs-6">
-			<h3>Search Suggestion</h3>
-			<ul>
-				<li class="classic">
-					<button type="button" 
-							data-search-result="<h1>hack?!</h1>" 
-							class="search-result">
-					<h1>hack?!</h1>
-					</button>
-				</li>
-			</ul>
-		</div>
+<div class="suggest-results-list search-spring">
+<button type="button" class="close" title="Close"><span>×</span></button>
+<div class="suggest-suggestion-list col-xs-6">
+	<h3>Search Suggestion</h3>
+	<ul>
+		<li class="classic">
+			<button type="button"
+					data-search-result="<h1>hack?!</h1>"
+					class="search-result">
+			<h1>hack?!</h1>
+			</button>
+		</li>
+	</ul>
+</div>
 ```
 
 Oops, that's not great—our input gets reflected without being sanitized! That means we can get
