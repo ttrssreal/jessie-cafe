@@ -1,7 +1,7 @@
 +++
 title = "Pwning the Ladybird browser"
 date = 2025-04-23T17:08:28+13:00
-draft = true
+draft = false
 description = """
     This post follows the exploitation of a UAF in the Ladybird Browsers javascript engine — LibJS
 """
