@@ -462,8 +462,8 @@ stage.
 
 All that's left is to close the tab, which will collapse the stack and trigger the ROP chain.
 
-[This](files/uaf-browser.zip) is the final exploit code for the browser.
-(and [heres](files/uaf-shell.js) the exploit for the REPL)
+[This](files/uaf-browser.zip) is the final exploit code for the browser, and [this](files/uaf-shell.js) is
+the exploit for the REPL. Both working on `b8fa355a21` — x86_64-linux
 
 Below is a video of the final exploit!
 
