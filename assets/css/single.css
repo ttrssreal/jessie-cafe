@@ -1,0 +1,5 @@
+video {
+  max-width: calc(100% - 2 * 10px);
+  margin: 10px;
+  margin-top: 1em;
+}

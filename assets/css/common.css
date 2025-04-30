@@ -1,9 +1,9 @@
 body {
   min-height: 100vh;
-  background-color: #fed8b1;
+  max-width: 50em !important;
+  background-color: #FAF9F6;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 main {
