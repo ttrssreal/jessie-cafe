@@ -461,6 +461,10 @@ which is a symbolic link to the calculator app. A more complex payload would map
 stage.
 
 All that's left is to close the tab, which will collapse the stack and trigger the ROP chain.
+
+[This](files/uaf-browser.zip) is the final exploit code for the browser.
+(and [heres](files/uaf-shell.js) the exploit for the REPL)
+
 Below is a video of the final exploit!
 
 {{< rawhtml >}}
