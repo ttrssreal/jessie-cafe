@@ -465,6 +465,6 @@ Below is a video of the final exploit!
 
 {{< rawhtml >}}
   <video controls>
-    <source src="files/browser-escape.mp4" type="video/mp4">
+    <source src="files/ladybird-uaf.mp4" type="video/mp4">
   </video>
 {{< /rawhtml >}}
