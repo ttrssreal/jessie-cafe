@@ -62,7 +62,7 @@ collector, and a heap use-after-free (UAF) in the malloc heap. But unfortunately
     is the crash report for the
     heap buffer overflow, and <a href="files/gc-uaf.js">this</a> is the one for the freelist corruption,
     if interested.
-{{< /rawhtml >}}
+{{< /sidenote >}}
 
 ## The Bug
 ### A Vulnerable Function
@@ -336,7 +336,7 @@ new ConstructProxy(0x1, 0x2, 0x3, 0x4, 0x5);
 {{< sidenote number="2" >}}
     The series of <code>undefined</code> arguments on $[3]$ is to make sure the <i>linked list node</i> is allocated
     in our free chunk and not any prelude allocations.
-{{< /rawhtml >}}
+{{< /sidenote >}}
 
 `FinalizationRegistry` places linked list nodes with object pointers on the malloc heap
 rendering them a useful structure to leak. Running the exploit we get the double representation of
