@@ -1,3 +1,10 @@
-<label for="sn-{{ .Get "number" }}" class="sidenote-toggler sidenote-number"></label>
-<input type="checkbox" id="sn-{{ .Get "number" }}" class="sidenote-toggle" />
+{{ $num := .Get "number" }}
+{{ $ref := cond (ne $num nil) $num "anything" }}
+{{ $label_class := cond (ne $num nil) "sidenote-number" "" }}
+
+<label
+  for="sn-{{ $ref }}"
+  class="{{ $label_class }} sidenote-toggler">
+</label>
+<input type="checkbox" id="sn-{{ $ref }}" class="sidenote-toggle" />
 <span class="sidenote">{{ .Inner }}</span>
