@@ -9,8 +9,14 @@ description = """
 
 ## Intro
 [Ladybird](https://ladybird.org) is a relatively new browser engine originating from the
-[SerenityOS project](https://github.com/SerenityOS/serenity). Currently, it's in pre-alpha and improving quickly.
-Take a look at the website and the GitHub for more information!
+[SerenityOS project](https://github.com/SerenityOS/serenity). Currently, it's in pre-alpha
+and improving quickly. Take a look at the website and the GitHub for more information!
+
+{{< sidenote >}}
+  Since the project's still in early development
+  (<a href="https://github.com/LadybirdBrowser/ladybird/blob/master/SECURITY.md">SECURITY.md</a>),
+  bugs and vulnerabilities can be safely disclosed publicly.
+{{< /sidenote >}}
 
 I'll be researching the JavaScript engine of Ladybird,
 [LibJS](https://github.com/LadybirdBrowser/ladybird/tree/master/Libraries/LibJS).
