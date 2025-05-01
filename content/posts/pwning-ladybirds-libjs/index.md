@@ -13,7 +13,7 @@ description = """
 Take a look at the website and the GitHub for more information!
 
 I'll be researching the JavaScript engine of Ladybird,
-[LibJS](https://github.com/LadybirdBrowser/ladybird/tree/278666edcd74/Libraries/LibJS).
+[LibJS](https://github.com/LadybirdBrowser/ladybird/tree/master/Libraries/LibJS).
 
 ## Architecture
 LibJS has an interpreter tier and no compilation tiers (yet!). It includes common modern JS engine
