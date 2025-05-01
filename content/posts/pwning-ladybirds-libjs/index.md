@@ -16,9 +16,9 @@ I'll be researching the JavaScript engine of Ladybird,
 [LibJS](https://github.com/LadybirdBrowser/ladybird/tree/278666edcd74/Libraries/LibJS).
 
 ## Architecture
-LibJS has an interpreter tier and no compilation tiers (yet!). It includes common modern JS engine  
-optimizations and is built with extensive verification checks across its critical code paths and data  
-structures, including vectors, making scenarios such as integer overflows leading to out-of-bounds  
+LibJS has an interpreter tier and no compilation tiers (yet!). It includes common modern JS engine
+optimizations and is built with extensive verification checks across its critical code paths and data
+structures, including vectors, making scenarios such as integer overflows leading to out-of-bounds
 accesses harder to exploit.
 
 ## Fuzzing
@@ -51,8 +51,8 @@ There were a few bugs that were more interesting:
  - [A caching bug in the regex parser](https://github.com/LadybirdBrowser/ladybird/commit/83e46b372815d28475269d04ca6b98e97861b33a)
  - [An integer overflow in `TypedArray`](https://github.com/LadybirdBrowser/ladybird/commit/f3a937ee769c2d9b4a78964641812171c4d03dd1)
 
-Initially, I thought the regex bug was an integer overflow... unfortunately, it wasn’t. The real integer overflow  
-in `TypedArray` looked really promising — but it seems hard to exploit, with all the bounds checks protecting  
+Initially, I thought the regex bug was an integer overflow... unfortunately, it wasn’t. The real integer overflow
+in `TypedArray` looked really promising — but it seems hard to exploit, with all the bounds checks protecting
 vectors from bad accesses.
 
 There were three bugs that looked really good: a heap buffer overflow, freelist corruption (or UAF) in the garbage
