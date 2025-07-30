@@ -3,6 +3,8 @@ title = "Bypassing a WAF With Autocomplete"
 date = 2024-07-15T10:33:59+12:00
 draft = false
 description = "Hacking a farming website!"
+[_build]
+  list = 'never'
 +++
 
 A few months ago, I was looking at a popular New Zealand website. I came across their search feature.
