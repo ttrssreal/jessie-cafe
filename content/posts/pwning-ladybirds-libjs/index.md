@@ -478,3 +478,5 @@ Below is a video of the final exploit!
     <source src="files/ladybird-uaf.mp4" type="video/mp4">
   </video>
 {{< /rawhtml >}}
+
+[330+ points on hacker news!](https://news.ycombinator.com/item?id=43852096)
